@@ -15,7 +15,6 @@ class _LandingPState extends State<LandingP> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(
-              
               color: Colors.blue,
               onPressed: (){}, 
               child: Text(
@@ -23,7 +22,7 @@ class _LandingPState extends State<LandingP> {
                 style: TextStyle(fontSize: 20.0),
                 )
               ),
-              
+              SizedBox(height: 10.0),
               FlatButton(
                 color: Colors.blue[200],
                 onPressed: (){
