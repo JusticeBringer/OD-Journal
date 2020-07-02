@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kBackgroundColor,
           fontFamily: "Poppins",
           textTheme: TextTheme(
-            body1: TextStyle(color: kBodyTextColor),
+            bodyText1: TextStyle(color: kBodyTextColor),
           )),
       home: Home(),
     );
@@ -47,12 +47,7 @@ class Home extends StatelessWidget {
                 // ...
                 // Then close the drawer
                 // child:
-                // FlatButton(
-                //     color: Colors.blue,
-                //     onPressed: () {
-                //       Navigator.pushNamed(context, '/land');
-                //     },
-                //     child: Text("Sync with Google"));
+
                 // Navigator.pop(context);
               },
             ),
@@ -95,6 +90,12 @@ class Home extends StatelessWidget {
                   ),
                 )),
           ),
+          FlatButton(
+              color: Colors.blue,
+              onPressed: () {
+                Navigator.pushNamed(context, '/land');
+              },
+              child: Text("To landing page")),
         ],
       ),
     );
