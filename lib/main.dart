@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'loading.dart';
+import 'landing_page.dart';
 
 void main() => runApp(MaterialApp(
-  home: Home()
+  initialRoute: '/home',
+  routes: {
+    '/': (context) => Loading(),
+    '/home': (context) => Home(),
+    '/land': (context) => LandingP()
+  },
 ));
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("OD-Journal"),
-        centerTitle: true,
-      ),
-      body: Text("journal")
-    );
-  }
-}
