@@ -33,11 +33,14 @@
 # Web related
 lib/generated_plugin_registrant.dart
 
+<<<<<<< HEAD
 # Symbolication related
 app.*.symbols
 
 # Obfuscation related
 app.*.map.json
 
+=======
+>>>>>>> 527f73a3301cb93751e8f9b7252ead1e70b9b7a4
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
