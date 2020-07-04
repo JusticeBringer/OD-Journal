@@ -18,7 +18,7 @@ class _LandingPState extends State<LandingP> {
             ClipPath(
                 clipper: MyClipper(),
                 child: Container(
-                height: 500,
+                height: 550,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -34,7 +34,12 @@ class _LandingPState extends State<LandingP> {
                     children: <Widget>[
                       RoundedButton(
                         color: Colors.blue,
-	                    onPressed: (){}, 
+	                      onPressed: (){}, 
+                        text: 'Log in with Facebook'
+                      ),
+                      RoundedButton(
+                        color: Colors.blue,
+	                      onPressed: (){}, 
                         text: 'Log in with Google'
                       ),
                       Text("or"),
@@ -65,7 +70,7 @@ class MyClipper extends CustomClipper<Path> {
     path.moveTo(0, size.height);
     path.lineTo(0, size.height/2);
     //path.lineTo(size.width, size.height/2);
-    path.quadraticBezierTo(size.width / 2, 150, size.width, size.height/2);
+    path.quadraticBezierTo(size.width / 2, 200, size.width, size.height/2);
     path.lineTo(size.width, size.height);
     path.close();
     return path;
