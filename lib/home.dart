@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,66 +31,41 @@ class Home extends StatelessWidget {
       //   backgroundColor: Colors.blue,
       //   elevation: 0,
       // ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                // child:
-
-                // Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      key: _scaffoldKey,
+      drawer: MyDrawer(),
       body: Column(
         children: <Widget>[
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-                height: 350,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    Color.fromRGBO(16, 27, 117, 0.5),
-                    Color.fromRGBO(16, 27, 117, 0.5),
-                  ]),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/points_removed.png",
-                    ),
+              height: 350,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color.fromRGBO(16, 27, 117, 0.5),
+                  Color.fromRGBO(16, 27, 117, 0.5),
+                ]),
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/points_removed.png",
                   ),
                 ),
-                child: Align(
-                  alignment: Alignment(-0.8, -0.6),
+              ),
+              child: Align(
+                alignment: Alignment(-0.8, -0.6),
+                child: FlatButton(
+                  onPressed: () {
+                    _scaffoldKey.currentState.openDrawer();
+                  },
+                  padding: EdgeInsets.all(0.0),
                   child: Image.asset(
-                    "assets/images/hamburger_icon.png",
+                    'assets/images/hamburger_icon.png',
                     width: 30,
                     height: 20,
                   ),
-                )),
+                ),
+              ),
+            ),
           ),
           FlatButton(
               color: Colors.blue,
@@ -96,6 +73,44 @@ class Home extends StatelessWidget {
                 Navigator.pushNamed(context, '/land');
               },
               child: Text("To landing page")),
+        ],
+      ),
+    );
+  }
+}
+
+class MyDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text('Drawer Header'),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+          ),
+          ListTile(
+            title: Text('Item 1'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Item 2'),
+            onTap: () {
+              // Update the state of the app
+              // ...
+
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
